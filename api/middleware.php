@@ -32,7 +32,9 @@ class Middleware{
     }
 
     private function SwitchMethodPost(){
-       
+        if(isset($_FILES['files'])){
+            $this->logic->UploadFile($_FILES['files']);
+        }
     }
 
     private function SwitchMethodPut(){

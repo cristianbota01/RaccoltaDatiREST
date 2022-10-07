@@ -4,7 +4,8 @@ define("HOST","localhost");
 define("MAIN_DB","raccolta_dati");
 define("MAIN_USER","root");
 define("MAIN_PASSWORD","");
-date_default_timezone_set('Europe/Rome');
+
+session_start();
 
 class DBAccess{
 
@@ -12,9 +13,8 @@ class DBAccess{
 
         try {
 
-            $db = new PDO("mysql:host=". HOST . ";dbname=" . MAIN_DB . ";charset=utf8", MAIN_USER, MAIN_PASSWORD);
-            $db->exec("SET time_zone='Europe/Rome';");
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->db = new PDO("mysql:host=". HOST . ";dbname=" . MAIN_DB . ";charset=utf8", MAIN_USER, MAIN_PASSWORD);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
           } catch (Exception $e) {
 
@@ -24,6 +24,6 @@ class DBAccess{
           }
     }
 
-}
 
-new DBAccess();
+
+}
