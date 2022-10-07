@@ -34,7 +34,6 @@ class Logic{
                 if ($file_size < 2097152) { 
                     
                     move_uploaded_file($file_tmp, $file); 
-                    chmod($file, 0775); 
                     array_push($arr_files, $file);
 
                 } else{
