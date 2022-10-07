@@ -44,3 +44,4 @@ class Middleware{
     }
 }
 
+new Middleware($_SERVER);
